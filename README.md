@@ -1,3 +1,12 @@
+Install the following packages in your node
+
+    npm i --save @fortawesome/fontawesome-svg-core
+    npm i --save @fortawesome/react-fontawesome
+    npm i --save @fortawesome/free-solid-svg-icons
+    npm install --save reactstrap react react-dom
+
+
+
 A react built super simple Bill tracker app for training purposes Thanks for checking out my README file. This project was a training tutorial I found on Youtube that I am using to learn React, AWS Lambda and DynamoDB. The video can be found at the following link: https://www.youtube.com/watch?v=Bro0uFVDrWY&t=3197s I am also using this opportunity to learn git and github and the different ways to use git in a team. I believe they call it Scrum or Agile but I have yet to explore these methodologies. Feel free to use this code however you like. I added he GNU 2.0 public license so dont worry about being sued if you use it in production. LOL!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
