@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Table, Button} from 'reactstrap';
 import {faCalculator, faInfo, faTrashAlt, faCheckSquare} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 class App extends Component {
 state = {
