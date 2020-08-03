@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Table, Button} from 'reactstrap';
 import {faCalculator, faInfo, faTrashAlt, faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
+import Popup from 'reactjs-popup';
 class App extends Component {
 state = {
   isLoading: false,
@@ -41,6 +41,7 @@ delBtn(id) {
   let updatedInvoices = [...this.state.invoices].filter(x => x.id !== id);
   this.setState({ invoices: updatedInvoices })
 }
+
 /*
 addInvoice = (e) => {
   this.setState({
@@ -50,9 +51,7 @@ addInvoice = (e) => {
 paid = (e) => {
 
 }
-info = (e) => {
 
-}
 image = (e) => {
 
 }
@@ -63,7 +62,42 @@ render() {
   const isLoading = this.state.isLoading;
   
   if(isLoading){return <div>Loading...</div>};
-  
+  const InfoModal = () => (
+    <Popup
+      trigger={<button className="btn btn-lg btn-info"> Info <FontAwesomeIcon icon={faInfo} /></button>}
+      modal
+      closeOnDocumentClick
+    >
+      <span> Modal content </span>
+    </Popup>
+  );
+  const ReconcileModal = () => (
+    <Popup
+      trigger={<button className="btn btn-lg btn-warning"> Reconcile <FontAwesomeIcon icon={faCalculator} /></button>}
+      modal
+      closeOnDocumentClick
+    >
+      <span> Modal content </span>
+    </Popup>
+  );
+  const ModifyModal = () => (
+    <Popup
+      trigger={<button className="btn btn-lg btn-success"> Modify <FontAwesomeIcon icon={faCheckSquare} /></button>}
+      modal
+      closeOnDocumentClick
+    >
+      <span> Modal Content </span>
+    </Popup>
+  );
+  const CreditorAccount = () => (
+    <Popup
+      trigger={<button className="btn btn-lg btn-success"> Account <FontAwesomeIcon icon={faCheckSquare} /></button>}
+      modal
+      closeOnDocumentClick
+    >
+      <span style={{color:'black'}}> Modal Content is not showing up because we need to change the font color</span>
+    </Popup>
+  );
   const allInvoices = this.state.invoices;
   let invoiceControls = allInvoices.map(x => 
     <tr key={x.id}>
@@ -71,12 +105,11 @@ render() {
       <td>{x.amount}</td>
       <td>{x.invoice}</td>
       <td>{x.date}</td>
-      
+      <td><ModifyModal /></td>
+      <td><InfoModal /></td>
+      <td><ReconcileModal /></td>
       <td><Button className="btn btn-lg btn-danger" onClick={()=>this.delBtn(x.id)}>Delete <FontAwesomeIcon icon={faTrashAlt}/></Button></td>
-      <td><Button className="btn btn-lg btn-success" onClick={()=>this.delBtn(x.id)}>Enter <FontAwesomeIcon icon={faCheckSquare}/></Button></td>
-      <td><Button className="btn btn-lg btn-info" onClick={()=>this.delBtn(x.id)}>Information <FontAwesomeIcon icon={faInfo} /></Button></td>
-      <td><Button className="btn btn-lg btn-warning" onClick={()=>this.delBtn(x.id)}>Reconcile <FontAwesomeIcon  icon={faCalculator}  /></Button></td>
-      
+      <td><CreditorAccount /></td>    
     </tr>
   );
 
