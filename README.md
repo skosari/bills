@@ -4,6 +4,7 @@ Install the following packages in your node
     npm i --save @fortawesome/react-fontawesome
     npm i --save @fortawesome/free-solid-svg-icons
     npm install --save reactstrap react react-dom
+    npm install reactjs-popup --save
 
 
 

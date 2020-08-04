@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import {Table, Button} from 'reactstrap';
-import {faCalculator, faInfo, faTrashAlt, faCheckSquare} from '@fortawesome/free-solid-svg-icons';
+import {faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import Popup from 'reactjs-popup';
+import PaymentCalculator from './components/PaymentCalculator';
+import DebtRelief from './components/DebtRelief';
+import ModifyModal from './components/ModifyModal';
+
 class App extends Component {
 state = {
   isLoading: false,
@@ -84,34 +87,6 @@ render() {
   const isLoading = this.state.isLoading;
   
   if(isLoading){return <div>Loading...</div>};
-  
-  const DebtRelief = () => (
-    <Popup
-      trigger={<button className="btn btn-lg btn-info"> Debt Relief <FontAwesomeIcon icon={faInfo} /></button>}
-      modal
-      closeOnDocumentClick
-    >
-      <span> Modal content </span>
-    </Popup>
-  );
-  const PaymentCalculator = () => (
-    <Popup
-      trigger={<button className="btn btn-lg btn-warning"> Payment Calculator <FontAwesomeIcon icon={faCalculator} /></button>}
-      modal
-      closeOnDocumentClick
-    >
-      <span> Modal content </span>
-    </Popup>
-  );
-  const ModifyModal = () => (
-    <Popup
-      trigger={<button className="btn btn-lg btn-success"> Modify <FontAwesomeIcon icon={faCheckSquare} /></button>}
-      modal
-      closeOnDocumentClick
-    >
-      <span> Modal Content </span>
-    </Popup>
-  );
 
   const allDebts = this.state.debts;
   let invoiceControls = allDebts.map(x => 
@@ -158,8 +133,8 @@ render() {
                 <th>Original Balance</th>
                 <th>Pay Off Date</th>
                 <th>Total Interest Paid</th>
-                <th colSpan='5'>Actions</th>
-                <th>image</th>
+                <th colSpan='4'>Actions</th>
+                
               </tr>
             </thead>
             <tbody>
