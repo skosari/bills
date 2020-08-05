@@ -7,7 +7,7 @@ let modalStyle = {
   color: 'black',
 }
 
-const ModifyModal = () => (
+const ModifyAccount = () => (
   <Popup
     trigger={<button className="btn btn-lg btn-success"> Modify <FontAwesomeIcon icon={faCheckSquare} /></button>}
     modal
@@ -17,4 +17,4 @@ const ModifyModal = () => (
   </Popup>
 );
 
-export default ModifyModal;
+export default ModifyAccount;

@@ -4,7 +4,7 @@ import {faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PaymentCalculator from './components/PaymentCalculator';
 import DebtRelief from './components/DebtRelief';
-import ModifyModal from './components/ModifyModal';
+import ModifyAccount from './components/ModifyAccount';
 
 class App extends Component {
 state = {
@@ -14,67 +14,28 @@ state = {
     {
       'id': '5',
       'creditor': 'wells fargo',
-      'balance': '1450.32',
-      'originalbalance': '1920.25',
-      'rate': '4.99',
-      'payment': '87.36',
-      'goal': '0',
+      'balance': 1450.32,
+      'originalbalance': 1920.25,
+      'rate': 4.99,
+      'payment': 87.36,
+      'goal': 0,
       'paidoffdate': '9/9/2022',
-      'totalinterestpaid': '140.34',
-      'monthstopayoff': '6',
+      'totalinterestpaid': 140.34,
+      'monthstopayoff': 6,
       'payoffstrategy': 'snowball'
     },
     {
       'id': '6',
       'creditor': 'bank of america',
-      'balance': '1450.32',
-      'originalbalance': '1920.25',
-      'rate': '4.99',
-      'payment': '87.36',
-      'goal': '0',
+      'balance': 1450.32,
+      'originalbalance': 1920.25,
+      'rate': 4.99,
+      'payment': 87.36,
+      'goal': 0,
       'paidoffdate': '9/9/2022',
-      'totalinterestpaid': '140.34',
-      'monthstopayoff': '6',
+      'totalinterestpaid': 140.34,
+      'monthstopayoff': 6,
       'payoffstrategy': 'avalanche'
-    },
-    {
-      'id': '7',
-      'creditor': 'discover',
-      'balance': '1450.32',
-      'originalbalance': '1920.25',
-      'rate': '4.99',
-      'payment': '87.36',
-      'goal': '0',
-      'paidoffdate': '9/9/2022',
-      'totalinterestpaid': '140.34',
-      'monthstopayoff': '6',
-      'payoffstrategy': 'tableorder'
-    },
-    {
-      'id': '8',
-      'creditor': 'synchrony',
-      'balance': '1450.32',
-      'originalbalance': '1920.25',
-      'rate': '4.99',
-      'payment': '87.36',
-      'goal': '0',
-      'paidoffdate': '9/9/2022',
-      'totalinterestpaid': '140.34',
-      'monthstopayoff': '6',
-      'payoffstrategy': 'nosnowball'
-    },
-    {
-      'id': '10',
-      'creditor': 'us bank',
-      'balance': '1450.32',
-      'originalbalance': '1920.25',
-      'rate': '4.99',
-      'payment': '87.36',
-      'goal': '0',
-      'paidoffdate': '9/9/2022',
-      'totalinterestpaid': '140.34',
-      'monthstopayoff': '6',
-      'payoffstrategy': 'lowestfirst'
     }
   ],
 }
@@ -86,7 +47,7 @@ delBtn(id) {
 render() {
   const isLoading = this.state.isLoading;
   
-  if(isLoading){return <div>Loading...</div>};
+  if(isLoading){return <div>Loading...</div>}; 
 
   const allDebts = this.state.debts;
   let invoiceControls = allDebts.map(x => 
@@ -99,9 +60,9 @@ render() {
       <td>{x.originalbalance}</td>
       <td>{x.paidoffdate}</td>
       <td>{x.totalinterestpaid}</td>
-      <td><ModifyModal /></td>
-      <td><DebtRelief /></td>
-      <td><PaymentCalculator /></td>
+      <td><ModifyAccount /></td>
+      <td><DebtRelief balance={x.balance} rate={x.rate} paidoffdate={x.paidoffdate}/></td>
+      <td><PaymentCalculator balance={x.balance}/></td>
       <td>
         <Button className="btn btn-lg btn-danger" onClick={()=>{ if (window.confirm('Are you sure you wish to delete this item?')) this.delBtn(x.id) } }>Delete <FontAwesomeIcon icon={faTrashAlt} /></Button>
       </td>
