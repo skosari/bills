@@ -5,37 +5,49 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PaymentCalculator from './components/PaymentCalculator';
 import DebtRelief from './components/DebtRelief';
 import ModifyAccount from './components/ModifyAccount';
-
+import AddDebt from './components/AddDebt'
 class App extends Component {
 state = {
   isLoading: false,
   debts: [
-
+    // {
+    //   id: 4,
+    //   creditor: '',
+    //   balance : '',
+    //   originalbalance: '',
+    //   rate : '',
+    //   payment: '',
+    //   goal: '',
+    //   paidoffdate: '',
+    //   totalinterestpaid: '',
+    //   monthstopayoff: '',
+    //   payoffstrategy: ''
+    // },
     {
-      'id': '5',
-      'creditor': 'wells fargo',
-      'balance': 1450.32,
-      'originalbalance': 1920.25,
-      'rate': 4.99,
-      'payment': 87.36,
-      'goal': 0,
-      'paidoffdate': '9/9/2022',
-      'totalinterestpaid': 140.34,
-      'monthstopayoff': 6,
-      'payoffstrategy': 'snowball'
+      id: 5,
+      creditor: 'wells fargo',
+      balance: 1450.32,
+      originalbalance: 1920.25,
+      rate: 4.99,
+      payment: 87.36,
+      goal: 0,
+      paidoffdate: '9/9/2022',
+      totalinterestpaid: 140.34,
+      monthstopayoff: 6,
+      payoffstrategy: 'snowball'
     },
     {
-      'id': '6',
-      'creditor': 'bank of america',
-      'balance': 1450.32,
-      'originalbalance': 1920.25,
-      'rate': 4.99,
-      'payment': 87.36,
-      'goal': 0,
-      'paidoffdate': '9/9/2022',
-      'totalinterestpaid': 140.34,
-      'monthstopayoff': 6,
-      'payoffstrategy': 'avalanche'
+      id: 6,
+      creditor: 'bank of america',
+      balance: 1450.32,
+      originalbalance: 1920.25,
+      rate: 4.99,
+      payment: 87.36,
+      goal: 0,
+      paidoffdate: '9/9/2022',
+      totalinterestpaid: 140.34,
+      monthstopayoff: 6,
+      payoffstrategy: 'avalanche'
     }
   ],
 }
@@ -44,22 +56,43 @@ delBtn(id) {
   this.setState({ debts: updatedDebts }); //Logic to delete the item
 }
 
+addDebt = (x) => {
+  const newDebt = {
+    id: (this.state.debts.length + 1),
+    creditor: 'bank of america',
+    balance: 1450.32,
+    originalbalance: 1920.25,
+    rate: 4.99,
+    payment: 87.36,
+    goal: 0,
+    paidoffdate: '9/9/2022',
+    totalinterestpaid: 140.34,
+    monthstopayoff: 6,
+    payoffstrategy: 'avalanche'
+  }
+  this.setState({ debts: [...this.state.debts, newDebt] })
+}
+
+
 render() {
   const isLoading = this.state.isLoading;
   
   if(isLoading){return <div>Loading...</div>}; 
 
   const allDebts = this.state.debts;
-  let invoiceControls = allDebts.map(x => 
+  let debtControls = allDebts.map(x => 
     <tr key={x.id}>
       <td>{x.creditor}</td>
       <td>{x.balance}</td>
-      <td>{x.payment} </td>
-      <td>{x.rate}</td>
-      <td>{x.monthstopayoff}</td>
       <td>{x.originalbalance}</td>
+      <td>{x.rate}</td>
+      <td>{x.payment} </td>
+      <td>{x.goal}</td>
       <td>{x.paidoffdate}</td>
       <td>{x.totalinterestpaid}</td>
+      <td>{x.monthstopayoff}</td>
+      <td>{x.payoffstrategy}</td>
+
       <td><ModifyAccount /></td>
       <td><DebtRelief balance={x.balance} rate={x.rate} paidoffdate={x.paidoffdate}/></td>
       <td><PaymentCalculator balance={x.balance}/></td>
@@ -88,19 +121,23 @@ render() {
               <tr>
                 <th>Creditor</th>
                 <th>Balance</th>
-                <th>Monthly Payment</th>
-                <th>Interest Rate</th>
-                <th>Months to Pay Off</th>
                 <th>Original Balance</th>
+                <th>Interest Rate</th>
+                <th>Monthly Payment</th>
+                <th>Goal</th>
                 <th>Pay Off Date</th>
                 <th>Total Interest Paid</th>
-                <th colSpan='4'>Actions</th>
+                <th>Months to Pay Off</th>
+                <th>Strategy</th>
+                <th colSpan='4'><AddDebt debts={this.props.debts}/></th>
                 
               </tr>
             </thead>
+
             <tbody>
               
-              {this.state.debts.length === 0 ? <tr><td colSpan='9'>All Caught Up</td></tr> : invoiceControls}
+              
+              {this.state.debts.length === 0 ? <tr><td colSpan='9'>All Caught Up</td></tr> : debtControls}
               
             </tbody>
           </Table>
