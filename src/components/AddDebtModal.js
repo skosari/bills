@@ -1,7 +1,10 @@
 import React from 'react';
+import Popup from 'reactjs-popup';
+import {faPlusSquare} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 //import propTypes from 'prop-types';
 
-class AddDebt extends React.Component {
+class AddDebtModal extends React.Component {
   state = {
     creditor: '',
     balance : '',
@@ -31,24 +34,6 @@ onSubmit = (e) => {
   })
 }
 onChange = (e) => this.setState({[e.target.name]: e.target.value})
-
-// addDebt = (x) => {
-//   const newDebt = {
-//     id: (this.state.debts.length + 1),
-//     creditor: creditor,
-//     balance: balance,
-//     originalbalance: originalbalance,
-//     rate: rate,
-//     payment: payment,
-//     goal: goal,
-//     paidoffdate: paidoffdate,
-//     totalinterestpaid: totalinterestpaid,
-//     monthstopayoff: monthstopayoff,
-//     payoffstrategy: payoffstrategy
-//   }
-//   this.setState({ debts: [...this.state.debts, newDebt] })
-// }
-
 render () {
 
   
@@ -131,12 +116,17 @@ render () {
   );
 
   return (
-    <React.Fragment>
+    <Popup
+    trigger={<button className="btn btn-lg btn-success"> Add Debt <FontAwesomeIcon icon={faPlusSquare} /></button>}
+    modal
+    closeOnDocumentClick
+  >
+    
       {debtInputForm}
-    </React.Fragment>
+    
+    </Popup>
   );
-
 }
 }
 
-export default AddDebt;
+export default AddDebtModal;
