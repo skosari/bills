@@ -2,21 +2,23 @@ import React from 'react';
 //import propTypes from 'prop-types';
 
 class AddDebt extends React.Component {
-  state = {
-    creditor: '',
-    balance : '',
-    originalbalance: '',
-    rate : '',
-    payment: '',
-    goal: '',
-    paidoffdate: '',
-    totalinterestpaid: '',
-    monthstopayoff: '',
-    payoffstrategy: ''
-  }
+  state = 
+      {
+      creditor: 'sfbsdbgd',
+      balance : '',
+      originalbalance: '',
+      rate : '',
+      payment: '',
+      goal: '',
+      paidoffdate: '',
+      totalinterestpaid: '',
+      monthstopayoff: '',
+      payoffstrategy: ''
+      }
+
 onSubmit = (e) => {
   e.preventDefault();
-  this.props.addDebt(this.state.debts);
+  // this.props.adddebt(this.state.NOTSURE);//These are the props that will pass into tha app.js
   this.setState({
     creditor: '',
     balance : '',
@@ -32,7 +34,7 @@ onSubmit = (e) => {
 }
 onChange = (e) => this.setState({[e.target.name]: e.target.value})
 
-// addDebt = (x) => {
+// adddebt = (x) => {
 //   const newDebt = {
 //     id: (this.state.debts.length + 1),
 //     creditor: creditor,
@@ -126,7 +128,9 @@ render () {
           value={this.state.payoffstrategy}
           onChange={this.onChange}
         />
+        <input type='submit' />
       </form>
+      <p>{this.state.debts}</p>
     </div>
   );
 

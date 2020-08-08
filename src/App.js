@@ -33,6 +33,8 @@ delBtn(id) {
   this.setState({ debts: updatedDebts }); //Logic to delete the item
 }
 
+
+
 render() {
   const isLoading = this.state.isLoading;
   
@@ -109,7 +111,7 @@ render() {
         modal
         closeOnDocumentClick
       >
-        <AddDebt />
+        <AddDebt adddebt={this.adddebt}/>
       </Popup>
     
     </div>
