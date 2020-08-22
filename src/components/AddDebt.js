@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+import DebtProvider from './components/DebtContext';
 //import propTypes from 'prop-types';
 
 class AddDebt extends React.Component {
