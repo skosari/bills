@@ -8,6 +8,8 @@ import ModifyAccount from './components/ModifyAccount';
 import AddDebt from './components/AddDebt';
 import RecycleBin from './components/RecycleBin';
 import Popup from 'reactjs-popup';
+import Nav from './components/Nav';
+import {DebtProvider} from './components/DebtContext';
 
 class App extends Component {
 state = {
@@ -65,7 +67,9 @@ render() {
   return(
 
     <div className='container border border-secondary rounded secondary' >
-      
+      <DebtProvider>
+        <Nav />
+      </DebtProvider>
       <h1>Credit Debt Reduction app built using React</h1>
       
       <div className='row'>
