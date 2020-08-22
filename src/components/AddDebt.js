@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
 import {DebtContext} from './DebtContext';
-//import propTypes from 'prop-types';
 
 const AddDebt = () => {
 
@@ -39,7 +38,7 @@ const AddDebt = () => {
   }
 
   return (
-    <form name={addDebt} name='add'>
+    <form onSubmit={addDebt} name='add'>
       <input type='text' name='creditor' value={creditor} onChange={updateCreditor} required placeholder='Creditor' />
       <button>Submit</button>
     </form>

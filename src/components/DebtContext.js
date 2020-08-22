@@ -2,7 +2,7 @@ import React, {useState, createContext} from 'react';
 
 export const DebtContext = createContext();
 
-export const DebtProvider= (props) => {
+export const DebtProvider = (props) => {
     const [debt, setDebt] = useState ([
         {
             id: 0,

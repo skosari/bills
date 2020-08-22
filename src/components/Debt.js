@@ -3,7 +3,7 @@ import React from 'react';
 const Debt = ({creditor,balance,originalbalance,rate,payment,goal,paidoffdate,totalinterestpaid,monthstopayoff,payoffstrategy}) => {
 
   return(
-    <div>
+    <tbody>
       <th>{creditor}</th>
       <th>{balance}</th>
       <th>{originalbalance}</th>
@@ -14,7 +14,7 @@ const Debt = ({creditor,balance,originalbalance,rate,payment,goal,paidoffdate,to
       <th>{totalinterestpaid}</th>
       <th>{monthstopayoff}</th>
       <th>{payoffstrategy}</th>
-    </div>
+    </tbody>
   )
 }
 

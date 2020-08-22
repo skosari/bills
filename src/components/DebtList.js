@@ -5,7 +5,7 @@ import {DebtContext} from './DebtContext'
 const DebtList = () => {
   const [debt, setDebt] = useContext(DebtContext);
   return(
-  <div>
+  <>
     
     {debt.map(x => (
       <Debt 
@@ -24,7 +24,7 @@ const DebtList = () => {
     ))}
 
   
-  </div>
+  </>
   );
 }
 
