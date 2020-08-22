@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PaymentCalculator from './components/PaymentCalculator';
 import DebtRelief from './components/DebtRelief';
 import ModifyAccount from './components/ModifyAccount';
-import AddDebt from './components/AddDebt';
+// import AddDebt from './components/AddDebt';
 import RecycleBin from './components/RecycleBin';
 import Popup from 'reactjs-popup';
 import Nav from './components/Nav';
@@ -94,7 +94,7 @@ render() {
                 <th>Total Interest Paid</th>
                 <th>Months to Pay Off</th>
                 <th>Strategy</th>
-                <th colSpan='4'><AddDebt /></th>
+                {/* <th colSpan='4'><AddDebt /></th> */}
                 
               </tr>
             </thead>
@@ -115,7 +115,7 @@ render() {
         modal
         closeOnDocumentClick
       >
-        <AddDebt adddebt={this.adddebt}/>
+        {/* <AddDebt adddebt={this.adddebt}/> */}
       </Popup>
     
     </div>
