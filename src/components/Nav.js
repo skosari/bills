@@ -7,7 +7,7 @@ const Nav = () => {
   return (
     <div>
       <h1>Navigation Bar</h1>
-  <p style = {{color:'green'}}>Debts {debt.length}</p>
+  <p style = {{color:'green'}}>Debt Accounts {debt.length}</p>
     </div>
   );
 }

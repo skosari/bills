@@ -74,10 +74,15 @@ const AddDebt = () => {
   }
 
   return (
+    
     <form onSubmit={addDebt} name='add'>
+      
       <input type='text' name='creditor' value={creditor} onChange={updateCreditor} required placeholder='Creditor' />
+      
       <input type='text' name='balance' value={balance} onChange={updateBalance} required placeholder='Current Balance' />
+      
       <input type='text' name='originalbalance' value={originalbalance} onChange={updateOriginalbalance} required placeholder='Starting balance' />
+      
       <input type='text' name='rate' value={rate} onChange={updateRate} required placeholder='Interest Rate' />
       <input type='text' name='payment' value={payment} onChange={updatePayment} required placeholder='Monthly Payment' />
       <input type='text' name='goal' value={goal} onChange={updateGoal} required placeholder='Goal' />
@@ -88,6 +93,7 @@ const AddDebt = () => {
 
       <button>Submit</button> 
     </form>
+    
   );
 }
 

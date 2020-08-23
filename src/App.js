@@ -19,7 +19,7 @@ function App() {
     <div className='container border border-secondary rounded secondary' >
       <DebtProvider>
         <Nav />
-        <AddDebt />
+        
       
         <h1>Credit Debt Reduction app built using React</h1>
         
@@ -28,7 +28,7 @@ function App() {
             <h4>Credit Debt Reduction Assistant</h4>
           </div>
         </div>
-
+        <AddDebt />
         <div className='row'>
           <div className='.col-xs-small center text-center'>
             
@@ -45,8 +45,6 @@ function App() {
                   <th>Total Interest Paid</th>
                   <th>Months to Pay Off</th>
                   <th>Strategy</th>
-                  {/* <th colSpan='4'><AddDebt /></th> */}
-                  
                 </tr>
               </thead>
               
