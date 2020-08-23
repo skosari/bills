@@ -49,7 +49,7 @@ function App() {
                   
                 </tr>
               </thead>
-
+              
               <DebtList />
 
             </Table>
