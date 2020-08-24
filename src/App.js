@@ -39,12 +39,13 @@ function App() {
                   <th>Balance</th>
                   <th>Original Balance</th>
                   <th>Interest Rate</th>
+                  <th>Monthly Accrued Interest</th>
                   <th>Monthly Payment</th>
                   <th>Goal</th>
                   <th>Pay Off Date</th>
                   <th>Total Interest Paid</th>
                   <th>Months to Pay Off</th>
-                  <th>Strategy</th>
+                  
                 </tr>
               </thead>
               

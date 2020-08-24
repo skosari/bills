@@ -14,6 +14,7 @@ const DebtList = () => {
         balance={x.balance}
         originalbalance = {x.originalbalance}
         rate = {x.rate}
+        monthlyinterest = {x.monthlyinterest}
         payment = {x.payment}
         goal = {x.goal}
         paidoffdate = {x.paidoffdate}

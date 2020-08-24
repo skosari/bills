@@ -10,12 +10,12 @@ export const DebtProvider = (props) => {
             balance: 1450.32,
             originalbalance: 1920.25,
             rate: 4.99,
+            monthlyinterest: '$' + 13.45,
             payment: 87.36,
             goal: 0,
             paidoffdate: '9/9/2022',
             totalinterestpaid: 140.34,
-            monthstopayoff: 6,
-            payoffstrategy: 'avalanche'
+            monthstopayoff: 6
         }
       ]);
     return (
