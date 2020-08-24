@@ -11,6 +11,7 @@ import Popup from 'reactjs-popup';
 import Nav from './components/Nav';
 import {DebtProvider} from './components/DebtContext';
 import DebtList from './components/DebtList';
+import DebtTable from './components/DebtTable';
 
 function App() {
 
@@ -50,7 +51,7 @@ function App() {
               </thead>
               
               <DebtList />
-
+              
             </Table>
           
           </div>
@@ -65,6 +66,10 @@ function App() {
         >
           <AddDebt adddebt={this.adddebt}/>
         </Popup> */}
+      <Table dark responsive bordered hover>
+      <DebtTable />
+      </Table>
+        
       </DebtProvider>
     </div>
 
